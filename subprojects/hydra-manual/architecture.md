@@ -79,7 +79,7 @@ You can use it as a guide to navigate the codebase or ask questions.
         - `out`, `dev`, ...
 - `BuildProducts`
     - not a Nix concept
-    - populated from a special file `$out/nix-support/hydra-build-producs`
+    - populated from a special file `$out/nix-support/hydra-build-products`
     - used to scrape parts of build results out to the web frontend
         - e.g. manuals, ISO images, etc.
 - `BuildMetrics`
