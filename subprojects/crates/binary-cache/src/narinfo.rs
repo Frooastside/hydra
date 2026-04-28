@@ -32,6 +32,7 @@ impl NarInfo {
         store_dir: &StoreDir,
         signing_keys: &[secrecy::SecretString],
     ) -> Self {
+        println!("STARTNARINFO NEW");
         let nar_hash = parse_hash(&path_info.nar_hash);
         let nar_hash_url = nar_hash.as_ref().map_or_else(
             || path.hash().to_string(),
@@ -100,13 +101,19 @@ impl NarInfo {
         signing_keys: &[secrecy::SecretString],
     ) -> Self {
         self.sigs.clear();
+        
+        println!("CLRSIANSI {} KEYS?", !signing_keys.is_empty());
         if !signing_keys.is_empty()
             && let Some(fp) = self.fingerprint(store_dir)
         {
             for s in signing_keys {
+                println!("CLRSIANSI {s} START");
                 if let Ok(sk) = s.expose_secret().parse::<SecretKey>() {
-                    self.sigs.push(sk.sign(&fp).to_string());
+                    let daaa = sk.sign(&fp).to_string();
+                    self.sigs.push(daaa);
+                    println!("CLRSIANSI {daaa}");
                 }
+                println!("CLRSIANSI {s} END");
             }
         }
         self
