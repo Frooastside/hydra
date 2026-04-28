@@ -108,7 +108,7 @@ impl NarInfo {
         {
             for s in signing_keys {
                 println!("CLRSIANSI START");
-                if let aaa = s.expose_secret().parse::<SecretKey>() {
+                if let aaa = s.expose_secret().parse::<SecretKey>();
                 println!("{:?}", aaa);
                 if let Ok(sk) = aaa {
                     let daaa = sk.sign(&fp).to_string();
