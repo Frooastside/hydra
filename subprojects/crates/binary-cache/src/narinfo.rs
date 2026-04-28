@@ -107,13 +107,13 @@ impl NarInfo {
             && let Some(fp) = self.fingerprint(store_dir)
         {
             for s in signing_keys {
-                println!("CLRSIANSI {s} START");
+                println!("CLRSIANSI START");
                 if let Ok(sk) = s.expose_secret().parse::<SecretKey>() {
                     let daaa = sk.sign(&fp).to_string();
                     self.sigs.push(daaa);
                     println!("CLRSIANSI {daaa}");
                 }
-                println!("CLRSIANSI {s} END");
+                println!("CLRSIANSI END");
             }
         }
         self
