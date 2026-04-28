@@ -110,7 +110,7 @@ impl NarInfo {
                 println!("CLRSIANSI START");
                 if let Ok(sk) = s.expose_secret().parse::<SecretKey>() {
                     let daaa = sk.sign(&fp).to_string();
-                    self.sigs.push(daaa);
+                    self.sigs.push(daaa.clone());
                     println!("CLRSIANSI {daaa}");
                 }
                 println!("CLRSIANSI END");
